@@ -1,6 +1,7 @@
 $LOAD_PATH << '.'
 
 require 'lib/password'
+require 'lib/ssh'
 
 password = 'mysecr3tpa$$w0rd'
 
