@@ -2,6 +2,7 @@ $LOAD_PATH << '.'
 
 require 'lib/password'
 require 'lib/jwt'
+require 'lib/ssh'
 
 password = 'mysecr3tpa$$w0rd'
 
@@ -24,3 +25,9 @@ puts token
 decoded = Fixture::AccessToken.decode(token, password)
 
 puts decoded
+
+keygen = Fixture::Keygen.new
+
+key = keygen.generate('some@mail.com', password)
+
+puts key.ssh_public_key
