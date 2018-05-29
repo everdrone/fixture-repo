@@ -9,7 +9,12 @@ module Fixture
       end
 
       def decode(token, secret)
-        JWT.decode(token, secret, true, { verify_iat: true, algorithm: 'HS256' })
+        begin
+          JWT.decode(token, secret, true, { verify_iat: true, algorithm: 'HS256' })
+        rescue JWT::InvalidJtiError
+          puts 'Invalid token'
+          nil
+        end
       end
     end
   end
