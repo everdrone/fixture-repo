@@ -18,8 +18,6 @@ module Fixture
         passphrase: passphrase
       )
     end
-
-    end
   end
 
 end
